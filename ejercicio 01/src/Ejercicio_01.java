@@ -1,36 +1,27 @@
-import java.util.Scanner;
 public class Ejercicio_01
 {
 	public static void main(String[] ARGS)
 	{
-		int x;
-		int cont, aux, i;
-		Scanner cin=new Scanner(System.in);
+	    int num;
+	    int auxreport;
+	    int auxret;
 		
 		do{
 		
-		cont=0;
-	
-		System.out.println("Ingrese el numero deseado: ");
-		x=cin.nextInt();
+		LecturaNum myclase= new LecturaNum();
+		num=myclase.LecturaNumPrincipal();
 		
-		for(i=2; i<x; i++){
-			
-			if((x%i)==0){cont=1; 
-			    break;
-			}
-		}
+		Calculo_Primo myclase2= new Calculo_Primo();
+		auxreport=myclase2.ComprobacionPrimo(num);
 		
-		if(cont==1){System.out.println("El NUMERO NO ES PRIMO");}
-		else{System.out.println("El NUMERO ES PRIMO");}
+		ReportePrimo myclase3= new ReportePrimo();
+		myclase3.MensajeReporte(auxreport);
 		
-		do{
-		System.out.println("\n ¿Desea volver? (SI:1 NO:0): ");
-		aux=cin.nextInt();
-		}while(aux!=1 && aux!=0);
-		if(aux==0) {System.out.println("GRACIAS ;) xD"); System.exit(0);}
-        }while(aux==1);
+	    Menu_Retorno myclase4= new Menu_Retorno();
+	    auxret=myclase4.ValorRetorno();
 		
+        }while(auxret==1);
 		
-    }   
+    }
+
 }
